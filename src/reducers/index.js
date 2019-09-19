@@ -1,5 +1,5 @@
-const LOAD_STORIES = 'modules/stories/LOAD_STORIES';
-const CLEAR_STORIES = 'modules/stories/CLEAR_STORIES';
+export const LOAD_STORIES = 'modules/stories/LOAD_STORIES';
+export const CLEAR_STORIES = 'modules/stories/CLEAR_STORIES';
 
 const stories = [
     {
