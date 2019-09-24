@@ -1,13 +1,14 @@
-import React from 'react';
-import './App.css';
-import Stories from './components/Stories';
+import React from "react";
+import "./App.css";
+import { connect } from "react-redux";
 
-function App() {
-  return (
-    <div className="App">
-      <Stories />
-    </div>
-  );
+function App(props) {
+  const { name } = props;
+  return <div className="App">{name}</div>;
 }
 
-export default App;
+const stateToProps = state => {
+  const { app } = state;
+  return { name: app.name };
+};
+export default connect(stateToProps)(App);
