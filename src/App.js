@@ -1,14 +1,13 @@
 import React from "react";
 import "./App.css";
-import { connect } from "react-redux";
+import Beers from "./components/Beers";
 
-function App(props) {
-  const { name } = props;
-  return <div className="App">{name}</div>;
-}
-
-const stateToProps = state => {
-  const { app } = state;
-  return { name: app.name };
+const App = ({ loading, data, loadBeers }) => {
+  return (
+    <div className="App">
+      <Beers />
+    </div>
+  );
 };
-export default connect(stateToProps)(App);
+
+export default App;

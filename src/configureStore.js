@@ -1,19 +1,18 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
-import { appReducer } from "./reducers/appReducer";
 import { combineEpics, createEpicMiddleware } from "redux-observable";
 import { compose } from "redux";
-import { fetchBeersEpic } from "./epics/fetchBeers";
+import beersReducer, { loadBeersEpic } from "./reducers/beers";
 
 export const configureStore = () => {
   //Combina los epics
-  const rootEpic = combineEpics(fetchBeersEpic);
+  const rootEpic = combineEpics(loadBeersEpic);
 
   //Creal el middleware que conecta los epics con Redux
   const epicMiddleware = createEpicMiddleware();
 
   //Combina los reducers
   const rootReducer = combineReducers({
-    app: appReducer
+    beers: beersReducer
   });
 
   const composeEnhancers =
